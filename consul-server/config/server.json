@@ -1,0 +1,10 @@
+{
+  "datacenter": "local",
+  "data_dir": "/data",
+  "client_addr": "0.0.0.0",
+  "ui": true,
+  "datacenter": "local",
+  "dns_config": {
+    "allow_stale": false
+  }
+}

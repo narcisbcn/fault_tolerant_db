@@ -1,0 +1,16 @@
+{
+  "service": {
+    "checks": [
+      {
+        "interval": "5s",
+        "script": "/usr/bin/mysqladmin ping --host=127.0.0.1 --port=6033 --user=app_user --password=root"
+      }
+    ],
+    "enableTagOverride": false,
+    "id": "proxysql",
+    "name": "proxysql",
+    "port": 6033,
+    "tags": [
+    ]
+  }
+}

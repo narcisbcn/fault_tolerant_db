@@ -1,0 +1,11 @@
+{
+  "client_addr": "0.0.0.0",
+  "datacenter": "local",
+  "data_dir": "/tmp/consul",
+  "leave_on_terminate": true,
+  "enable_script_checks": true,
+  "dns_config": {
+    "allow_stale": true,
+    "max_stale": "1s"
+  }
+}
