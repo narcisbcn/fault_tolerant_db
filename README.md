@@ -20,12 +20,15 @@ The idea of that talk was to explain how is possible to use a highly available p
 
 
 
-Bootstrapping
+Bootstrapping and test
 -------------
-1.- docker-compose up (it takes around to 30 seconds)
-2.- docker exec -it mrm bash /docker-entrypoint-initdb.d/replication-bootstrap.sh ( set up MySQL replicas)
+1.- docker-compose build
+2.- docker-compose up (it takes around to 30 seconds)
+3.- docker exec -it mrm bash /docker-entrypoint-initdb.d/replication-bootstrap.sh ( set up MySQL replicas)
+4.- tests/load_testing.sh : run this script to simulate writes
+5.- docker-compose kill mysql-master
 
-Or: execute the *tests/0_bootstrap_environment.sh* script
+
 
 
 Docker images 

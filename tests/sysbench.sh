@@ -1,5 +1,7 @@
+!#/bin/bash
+
 sysbench oltp.lua \
---oltp-table-size=1000000 \
+--oltp-table-size=100 \
 --mysql-db=my_database \
 --mysql-user=app_user \
 --mysql-password=root 

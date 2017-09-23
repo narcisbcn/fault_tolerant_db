@@ -7,7 +7,7 @@ echo "Stopping dockers..."
 docker-compose down
 if [[ $(docker ps -a -q) ]]; then
     echo "Removing containers..."
-    docker rm -f $(docker ps -a -q)
+    docker rm -f $(docker ps -a -q --filter "name=consul-server" --filter "name=mrm" --filter "name=mysql-" --filter "name=proxysql")
 fi
 echo "Starting docker compose..."
 docker-compose up -d
