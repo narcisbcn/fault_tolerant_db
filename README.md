@@ -22,13 +22,14 @@ The idea of that talk was to explain how is possible to use a highly available p
 
 Bootstrapping and test
 -------------
-1.- docker-compose build
-2.- docker-compose up (it takes around to 30 seconds)
-3.- docker exec -it mrm bash /docker-entrypoint-initdb.d/replication-bootstrap.sh ( set up MySQL replicas)
-4.- tests/load_testing.sh : run this script to simulate writes
-5.- docker-compose kill mysql-master
-
-
+```sh
+$ docker-compose build
+$ docker-compose up (it takes around 30 seconds since databases have loaded the engine)
+$ docker exec -it mrm bash /docker-entrypoint-initdb.d/replication-bootstrap.sh ( set up MySQL replicas)
+$ tests/load_testing.sh  (run this script to simulate writes, or sysbench provided)
+$ watch -n1  'mysql -u root -proot -h 127.0.0.1  -P6032  -t -se  "select * from stats_mysql_connection_pool"' (check as proxysql is routing the traffic)
+$ docker-compose kill mysql-master (simulate master failover)
+```
 
 
 Docker images 
